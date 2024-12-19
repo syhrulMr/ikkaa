@@ -40,6 +40,16 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        .play-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background-color: #37AFE1;
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
         .surprise-button {
             margin-top: 30px;
             padding: 15px 30px;
@@ -77,21 +87,23 @@
     </style>
 </head>
 <body>
-    <!-- Audio element for music -->
-    <audio id="birthdayMusic" autoplay loop>
+    <!-- Audio element for music (initially muted) -->
+    <audio id="birthdayMusic" loop>
         <source src="Audio Saya-1.mp3" type="audio/mp3">
         Your browser does not support the audio element.
-        
     </audio>
 
     <div class="container">
+        <!-- Play button to start music -->
+        <button class="play-button" onclick="playMusic()">Play Music 🎶</button>
+
         <h1>Happy Birthday, Risqaa🎉😊!</h1>
         <p>
             Meski kita belum pernah bertemu langsung, aku merasa senang sekali bisa mengenalmu meski dari jauh.
             Aku berharap ulang tahunmu ini membawa banyak kebahagiaan dan senyuman🤗.
         </p>
         <div class="photo-gallery">
-            <!-- Rep`lace src with the actual photo URLs -->
+            <!-- Replace src with the actual photo URLs -->
             <img src="ikka1.png" alt="Photo 1">
             <img src="ikka.png" alt="Photo 2">
             <img src="ikka3.png" alt="Photo 3">
@@ -100,7 +112,14 @@
         <div class="surprise-message" id="surpriseMessage">You are amazing, and I can't wait to know you even better! 🎉</div>
         <canvas id="confettiCanvas" class="confetti"></canvas>
     </div>
+
     <script>
+        function playMusic() {
+            const audio = document.getElementById('birthdayMusic');
+            audio.play();  // Play music when the button is clicked
+            document.querySelector('.play-button').style.display = 'none'; // Hide play button after music starts
+        }
+
         function showSurprise() {
             document.getElementById('surpriseMessage').style.display = 'block';
             startConfetti();
