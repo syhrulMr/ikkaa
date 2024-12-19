@@ -115,10 +115,11 @@
 
     <script>
         function playMusic() {
-            const audio = document.getElementById('birthdayMusic');
-            audio.play();  // Play music when the button is clicked
-            document.querySelector('.play-button').style.display = 'none'; // Hide play button after music starts
-        }
+    const audio = document.getElementById('birthdayMusic');
+    audio.volume = 1.0;  // Atur volume ke maksimum (1.0)
+    audio.play();  // Play music when the button is clicked
+    document.querySelector('.play-button').style.display = 'none'; // Hide play button after music starts
+}
 
         function showSurprise() {
             document.getElementById('surpriseMessage').style.display = 'block';
